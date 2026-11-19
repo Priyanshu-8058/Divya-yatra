@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="92" viewBox="0 0 360 92" role="img" aria-labelledby="title">
+  <title id="title">Divya Yatra</title>
+  <g fill="#e86c1c">
+    <path d="M45 65C23 65 13 55 12 40c16 1 27 9 33 25Z"/>
+    <path d="M45 65C27 53 25 36 35 20c9 13 12 28 10 45Z"/>
+    <path d="M46 65C39 42 45 22 58 8c7 20 4 41-12 57Z"/>
+    <path d="M47 65c2-22 14-37 32-45 1 20-9 37-32 45Z"/>
+    <path d="M48 65c11-17 27-23 44-21-7 17-22 25-44 21Z"/>
+    <path d="M17 68h61l-5 7H22Z"/>
+    <path d="M25 78h46l-5 6H30Z"/>
+  </g>
+  <text x="105" y="48" fill="#a93b16" font-family="Georgia,serif" font-size="40" font-weight="700">Divya Yatra</text>
+  <text x="107" y="72" fill="#29313a" font-family="Arial,sans-serif" font-size="14">Your journey. Your faith. Your divine destination.</text>
+</svg>
