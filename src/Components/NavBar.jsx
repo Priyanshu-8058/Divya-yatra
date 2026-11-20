@@ -23,7 +23,7 @@ function NavBar() {
             <ul
                 id="site-navigation"
                 className={`${isMenuOpen ? "flex" : "hidden"
-                    } absolute left-0 top-full z-20 w-full flex-col gap-4 p-4 text-sm  min-[881px]:static min-[881px]:z-auto min-[881px]:flex min-[881px]:w-auto min-[881px]:flex-row min-[881px]:gap-6 min-[881px]:bg-transparent min-[881px]:p-0 min-[881px]:text-sm min-[1081px]:gap-6 max-[1080px]:text-xs`}
+                    } absolute left-0 top-full z-20 w-full flex-col gap-4 p-4 text-sm bg-white  min-[881px]:static min-[881px]:z-auto min-[881px]:flex min-[881px]:w-auto min-[881px]:flex-row min-[881px]:gap-6 min-[881px]:bg-transparent min-[881px]:p-0 min-[881px]:text-sm min-[1081px]:gap-6 max-[1080px]:text-xs`}
             >
                 {navLinks.map(([label, path]) => (
                     <li key={path} className="shrink-0">
