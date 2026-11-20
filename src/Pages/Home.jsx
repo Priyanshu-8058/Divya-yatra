@@ -1,4 +1,4 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../Components/NavBar";
 import hero from "../assets/home.avif";
 import SearchYatra from "../Components/SearchYatra";
 import CharDhamJourney from "../Components/CharDhamJourney";

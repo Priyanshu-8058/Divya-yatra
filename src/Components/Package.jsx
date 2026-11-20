@@ -3,7 +3,7 @@ import { SiGumtree } from "react-icons/si";
 import { IoMdStarOutline } from "react-icons/io";
 import { GiRotaryPhone } from "react-icons/gi";
 import PackageCard from "./PackageCard";
-import CharDhamYatra from "../assets/CharDhamYatra.avif"
+import CharDhamYatra from "../assets/CharDhamYatra.avif";
 import Kashi from "../assets/Kashi.avif";
 import Haridwar from "../assets/Haridwar.avif";
 
@@ -11,8 +11,8 @@ function Package() {
 
     return (
         <>
-            <div className="bg-pink-50 min-h-[400px] flex flex-row items-center">
-                <div className="bg-pink-100 rounded-xl min-h-[290px] max-w-[500px] p-5 m-auto" >
+            <div className="bg-pink-50 min-h-[400px] flex flex-col lg:flex-row items-center gap-8">
+                <div className="w-full max-w-[500px] bg-pink-100 rounded-xl min-h-[290px] p-5 m-auto">
                     <h1 className="text-xl font-bold mb-4 font-serif" >Why travel with Divya Yatra?</h1>
 
                     <ul className="grid grid-cols-2 gap-4">
@@ -55,9 +55,9 @@ function Package() {
                     </ul>
 
                 </div>
-                <div className="min-w-[650px] min-h-[300px] m-auto rounded-xl  bg-pink-50">
-                    <h1 className="text-2xl font-semiqbold font-serif">Popular yatra packages</h1>
-                    <div className="flex flex-wrap gap-4 mt-5">
+                <div className="w-full lg:flex-1 lg:min-w-0 min-h-[300px] m-auto rounded-xl bg-pink-50">
+                    <h1 className="text-2xl font-semibold font-serif">Popular yatra packages</h1>
+                    <div className="flex flex-wrap justify-center gap-4 mt-5">
                         <PackageCard imageUrl={CharDhamYatra} title="11 days" heading="Char Dham Yatra" locations="⌖ Uttarakhand · 4 sacred shrines" ticket="3,200" />
                         <PackageCard imageUrl={Kashi} title="3 days" heading="Kashi Vishwanath & Varanasi" locations="⌖ Varanasi · Uttar Pradesh" ticket=" 8,999" />
                         <PackageCard imageUrl={Haridwar} title="4 days" heading="Haridwar – Rishikesh Retreat" locations="⌖ Uttarakhand · Ganga valley" ticket="10,999 " />

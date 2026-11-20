@@ -1,41 +1,98 @@
 import logo from "../assets/divya-yatra-logo.svg";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const navLinks = [
+        ["Home", "/"],
+        ["Explore Temples", "/temples"],
+        ["Yatra Planner", "/planner"],
+        ["Yatra Packages", "/packages"],
+        ["Travel Info", "/travel"],
+        ["About Us", "/about"],
+    ];
+
     return (
-        <>
-            <nav className="relative flex justify-between items-center px-4 bg-white h-18 shadow-sm md:px-6">
-                <img className="h-14" src={logo} alt="Divya Yatra Logo" />
+        <nav className="relative flex min-h-[72px] flex-nowrap items-center justify-between gap-3 bg-white px-4 shadow-sm md:px-6">
+            <img className="h-14 shrink-0 max-[1080px]:h-12" src={logo} alt="Divya Yatra Logo" />
 
+            <ul
+                id="site-navigation"
+                className={`${isMenuOpen ? "flex" : "hidden"
+                    } absolute left-0 top-full z-20 w-full flex-col gap-4 p-4 text-sm  min-[881px]:static min-[881px]:z-auto min-[881px]:flex min-[881px]:w-auto min-[881px]:flex-row min-[881px]:gap-6 min-[881px]:bg-transparent min-[881px]:p-0 min-[881px]:text-sm min-[1081px]:gap-6 max-[1080px]:text-xs`}
+            >
+                {navLinks.map(([label, path]) => (
+                    <li key={path} className="shrink-0">
+                        <NavLink
+                            to={path}
+                            end={path === "/"}
+                            onClick={() => setIsMenuOpen(false)}
+                            className={({ isActive }) =>
+                                `whitespace-nowrap hover:text-orange-500 ${isActive
+                                    ? "underline decoration-orange-500 underline-offset-4"
+                                    : ""
+                                }`
+                            }
+                        >
+                            {label}
+                        </NavLink>
+                    </li>
+                ))}
+            </ul>
 
-                <ul className="flex gap-6 text-sm ">
+            <div className="flex shrink-0 items-center gap-3 max-[1080px]:gap-2">
+                <button
+                    type="button"
+                    aria-label={isSearchOpen ? "Close search" : "Open search"}
+                    aria-expanded={isSearchOpen}
+                    aria-controls="site-search"
+                    onClick={() => setIsSearchOpen(!isSearchOpen)}
+                    className="shrink-0"
+                >
+                    <FaSearch />
+                </button>
 
-                    <li><Link to="/" className="hover:text-orange-500">Home</Link></li>
-                    <li><Link to="/temples" className="hover:text-orange-500">Explore Temples</Link></li>
-                    <li><Link to="/planner" className="hover:text-orange-500">Yatra Planner</Link></li>
-                    <li><Link to="/packages" className="hover:text-orange-500">Yatra Packages</Link></li>
-                    <li><Link to="/travel" className="hover:text-orange-500">Travel Info</Link></li>
-                    <li><Link to="/about" className="hover:text-orange-500">About Us</Link></li>
-                </ul>
+                <button
+                    type="button"
+                    className="shrink-0 rounded border-2 border-orange-500 px-3 py-1 text-orange-500 hover:bg-orange-500 hover:text-white max-[1080px]:px-2 max-[1080px]:py-0.5 max-[1080px]:text-xs"
+                >
+                    Login
+                </button>
 
-                <div className="flex gap-4 items-center">
-                    <button type="button" aria-label="Search" onClick={() => setIsSearchOpen(!isSearchOpen)}><FaSearch /></button>
-                    {isSearchOpen && (
-                        <input
-                            type="search"
-                            placeholder="Search temples or packages..."
-                            className="w-56 rounded border border-gray-300 px-3 py-0.5"
-                        />
-                    )}
-                    <button className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white p-0.5 px-3 rounded hover:cursor-pointer">Login</button>
-                    <button className="border-2 bg-orange-500 text-white hover:border-2 hover:border-orange-500 hover:text-orange-500 hover:bg-white p-0.5 px-3 rounded hover:cursor-pointer">Register</button>
-                </div>
-            </nav>
-        </>
-    )
+                <button
+                    type="button"
+                    className="shrink-0 rounded border-2 border-orange-500 bg-orange-500 px-3 py-1 text-white hover:bg-white hover:text-orange-500 max-[1080px]:px-2 max-[1080px]:py-0.5 max-[1080px]:text-xs"
+                >
+                    Register
+                </button>
+
+                <button
+                    type="button"
+                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isMenuOpen}
+                    aria-controls="site-navigation"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="hidden shrink-0 max-[880px]:inline-flex"
+                >
+                    {isMenuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+            </div>
+
+            {isSearchOpen && (
+                <input
+                    id="site-search"
+                    type="search"
+                    aria-label="Search temples or packages"
+                    placeholder="Search temples or packages..."
+                    className="absolute right-4 top-full z-30 mt-2 w-56 rounded border border-gray-300 bg-white px-3 py-2 shadow md:right-6"
+                />
+            )}
+        </nav>
+    );
 }
 
 export default NavBar;
