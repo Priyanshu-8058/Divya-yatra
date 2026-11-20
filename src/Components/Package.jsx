@@ -67,7 +67,7 @@ function Package() {
 
             </div>
             <div className="flex min-h-[177px] flex-col items-center justify-center bg-[#213343] px-6 py-10 text-center">
-                <h2 className="max-w-2xl font-serif text-xl font-semibold italic leading-snug md:text-2xl">
+                <h2 className="max-w-2xl font-serif text-white text-xl font-semibold italic leading-snug md:text-2xl">
                     “The journey changes the way you see the world, and the way you see yourself.”
                 </h2>
 
